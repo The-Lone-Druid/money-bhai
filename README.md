@@ -46,13 +46,16 @@ List of Dependencies used in this project with their specific version:-
    "babel-plugin-inline-dotenv": "^1.7.0",
    "expo": "~45.0.0",
    "expo-asset": "~8.5.0",
+   "expo-checkbox": "~2.1.0",
    "expo-constants": "~13.1.1",
+   "expo-dev-client": "~1.0.0",
    "expo-font": "~10.1.0",
    "expo-linking": "~3.1.0",
    "expo-splash-screen": "~0.15.1",
    "expo-status-bar": "~1.3.0",
    "expo-system-ui": "~1.2.0",
    "expo-web-browser": "~10.2.0",
+   "formik": "^2.2.9",
    "react": "17.0.2",
    "react-dom": "17.0.2",
    "react-native": "0.68.2",
@@ -63,8 +66,7 @@ List of Dependencies used in this project with their specific version:-
    "react-native-web": "0.17.7",
    "react-redux": "^8.0.2",
    "twrnc": "^3.3.3",
-   "expo-checkbox": "~2.1.0",
-   "expo-dev-client": "~1.0.0"
+   "yup": "^0.32.11"
 },
 ```
 
