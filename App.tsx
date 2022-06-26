@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
 import tw from "./constants/tailwind";
@@ -21,7 +21,13 @@ export default function App() {
         <AuthProvider>
           <SafeAreaProvider>
             <Navigation colorScheme={colorScheme} />
-            <StatusBar style="auto" />
+            <StatusBar
+              backgroundColor={"#00000000"}
+              translucent={true}
+              barStyle={
+                colorScheme === "light" ? "dark-content" : "light-content"
+              }
+            />
           </SafeAreaProvider>
         </AuthProvider>
       </Provider>

@@ -1,18 +1,16 @@
-import { Image, ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "../../constants/tailwind";
 import Onboarding, { DotProps } from "react-native-onboarding-swiper";
 import { Text } from "../../components/Themed";
-import Colors from "../../constants/Colors";
 import DynamicButton from "../../components/Buttons/DynamicButton";
-import useColorScheme from "../../hooks/useColorScheme";
-import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
 
 type Props = {};
 
-const OnboardingUI = (props: Props) => {
-  const colorScheme = useColorScheme();
+const OnboardingUI: React.FC<Props> = (props) => {
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={tw`flex-1`}>
@@ -22,20 +20,20 @@ const OnboardingUI = (props: Props) => {
             backgroundColor: "transparent",
             image: <OnboardingOne />,
             title: "",
-            subtitle: ""
+            subtitle: "",
           },
           {
             backgroundColor: "transparent",
             image: <OnboardingTwo />,
             title: "",
-            subtitle: ""
+            subtitle: "",
           },
           {
             backgroundColor: "transparent",
             image: <OnboardingThree />,
             title: "",
-            subtitle: ""
-          }
+            subtitle: "",
+          },
         ]}
         showDone={false}
         showSkip={false}
@@ -46,27 +44,35 @@ const OnboardingUI = (props: Props) => {
         DotComponent={DotComponent}
       />
       <View style={tw`p-3`}>
-        <DynamicButton type={"primary"} title={"Sign Up"} />
+        <DynamicButton
+          type={"primary"}
+          title={"Sign Up"}
+          onPress={() => {
+            navigation.navigate("SignUp");
+          }}
+        />
         <DynamicButton
           type={"primary-light"}
           title={"Login"}
           buttonStyle={tw`mt-3`}
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
         />
       </View>
-      <StatusBar style={colorScheme === "light" ? "dark" : "light"} />
     </SafeAreaView>
   );
 };
 
 export default OnboardingUI;
 
-const styles = StyleSheet.create({});
-
 const DotComponent: React.FC<DotProps> = ({ selected }) => {
   return (
     <View
       style={tw`${
-        selected ? "bg-appViolet-100 h-5 w-5" : "bg-white bg-opacity-20 h-2 w-2"
+        selected
+          ? "bg-appViolet-100 h-5 w-5"
+          : "bg-gray-500 bg-opacity-20 h-2 w-2"
       } rounded-full mx-2`}
     ></View>
   );

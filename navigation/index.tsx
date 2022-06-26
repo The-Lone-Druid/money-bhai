@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
   DefaultTheme,
-  DarkTheme
+  DarkTheme,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
@@ -17,6 +17,8 @@ import { ColorSchemeName, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import { AuthContext } from "../screens/auth/AuthContext";
+import Login from "../screens/auth/Login";
+import SignUp from "../screens/auth/SignUp";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import OnboardingUI from "../screens/onboarding/Onboarding";
@@ -25,12 +27,12 @@ import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
   RootTabParamList,
-  RootTabScreenProps
+  RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation({
-  colorScheme
+  colorScheme,
 }: {
   colorScheme: ColorSchemeName;
 }) {
@@ -58,8 +60,8 @@ function RootNavigator() {
     <Stack.Navigator
       screenOptions={{
         contentStyle: {
-          backgroundColor: colorScheme === "light" ? "white" : "#1B2430"
-        }
+          backgroundColor: colorScheme === "light" ? "white" : "#1B2430",
+        },
       }}
     >
       {userData && (
@@ -72,6 +74,16 @@ function RootNavigator() {
       <Stack.Screen
         name="onboarding"
         component={OnboardingUI}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUp}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -99,7 +111,7 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabOne"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint
+        tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
       <BottomTab.Screen
@@ -112,7 +124,7 @@ function BottomTabNavigator() {
             <Pressable
               onPress={() => navigation.navigate("Modal")}
               style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1
+                opacity: pressed ? 0.5 : 1,
               })}
             >
               <FontAwesome
@@ -122,7 +134,7 @@ function BottomTabNavigator() {
                 style={{ marginRight: 15 }}
               />
             </Pressable>
-          )
+          ),
         })}
       />
       <BottomTab.Screen
@@ -130,7 +142,7 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
     </BottomTab.Navigator>
