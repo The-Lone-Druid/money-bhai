@@ -22,16 +22,13 @@ import * as Yup from "yup";
 
 type Props = {};
 
-const LoginValidationSchema = Yup.object({
+const ForgotPasswordValidationSchema = Yup.object({
   email: Yup.string()
     .email("Please enter a valid email")
     .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Please enter a valid password")
-    .required("Password is required"),
 });
 
-const Login = (props: Props) => {
+const ForgotPassword = (props: Props) => {
   const [passwordVisible, setPasswordVisible] = React.useState(true);
   const [isChecked, setIsChecked] = React.useState(false);
   const navigation = useNavigation();
@@ -42,15 +39,16 @@ const Login = (props: Props) => {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView>
-          <ScreenHeader title={"Login"} backButton={true} />
+          <ScreenHeader title={"Forgot Password"} backButton={true} />
           <ScrollView>
             <Formik
-              initialValues={{ email: "", password: "" }}
-              validationSchema={LoginValidationSchema}
+              initialValues={{ email: "" }}
+              validationSchema={ForgotPasswordValidationSchema}
               onSubmit={(values, formikActions) => {
                 setTimeout(() => {
                   Alert.alert(JSON.stringify(values));
                   formikActions.setSubmitting(false);
+                  navigation.navigate("PasswordEmailSent");
                 }, 500);
               }}
             >
@@ -63,6 +61,10 @@ const Login = (props: Props) => {
                 touched,
               }) => (
                 <View style={tw`p-3 pb-50`}>
+                  <Text style={tw`text-2xl font-bold px-2 mt-10`}>
+                    Don't worry. Enter your email and we'll send you a link to
+                    reset your password.
+                  </Text>
                   <View style={tw`mt-10`}>
                     <TextField
                       placeholder="Email"
@@ -73,51 +75,12 @@ const Login = (props: Props) => {
                       onBlur={handleBlur("email")}
                       onError={touched.email && errors.email && errors.email}
                     />
-                    <TextField
-                      placeholder="Password"
-                      secureTextEntry={passwordVisible}
-                      inputStyle={tw`mt-5`}
-                      onShowPasswordPress={() => {
-                        setPasswordVisible(!passwordVisible);
-                      }}
-                      passwordIcon={true}
-                      value={values.password}
-                      onChangeText={handleChange("password")}
-                      onBlur={handleBlur("password")}
-                      onError={
-                        touched.password && errors.password && errors.password
-                      }
-                    />
                     <DynamicButton
-                      title={"Login"}
+                      title={"Continue"}
                       type={"primary"}
                       buttonStyle={tw`mt-8`}
                       onPress={handleSubmit}
                     />
-                    <TouchableOpacity
-                      onPress={() => {
-                        navigation.navigate("ForgotPassword");
-                      }}
-                    >
-                      <Text
-                        style={tw`font-bold text-center py-4 pt-6 text-violet-400 text-base`}
-                      >
-                        Forgot password?
-                      </Text>
-                    </TouchableOpacity>
-                    <Text
-                      style={tw`font-bold text-center text-gray-500 text-base`}
-                    >
-                      Don't have an account yet?{" "}
-                      <Text
-                        style={tw`text-violet-400 underline`}
-                        onPress={() => {
-                          navigation.navigate("SignUp");
-                        }}
-                      >
-                        Sign Up
-                      </Text>
-                    </Text>
                   </View>
                 </View>
               )}
@@ -129,4 +92,4 @@ const Login = (props: Props) => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

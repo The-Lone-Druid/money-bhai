@@ -42,6 +42,7 @@ const OnboardingUI: React.FC<Props> = (props) => {
         bottomBarHeight={30}
         bottomBarHighlight={false}
         DotComponent={DotComponent}
+        containerStyles={tw`justify-start android:pt-10`}
       />
       <View style={tw`p-3`}>
         <DynamicButton

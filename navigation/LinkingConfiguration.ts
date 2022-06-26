@@ -30,6 +30,8 @@ const linking: LinkingOptions<RootStackParamList> = {
       Modal: "modal",
       Login: "Login",
       SignUp: "SignUp",
+      ForgotPassword: "ForgotPassword",
+      PasswordEmailSent: "PasswordEmailSent",
       onboarding: "onboarding",
       NotFound: "*",
     },

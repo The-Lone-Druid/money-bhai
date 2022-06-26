@@ -17,7 +17,9 @@ import { ColorSchemeName, Pressable, StatusBar } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import { AuthContext } from "../screens/auth/AuthContext";
+import ForgotPassword from "../screens/auth/ForgotPassword";
 import Login from "../screens/auth/Login";
+import PasswordEmailSent from "../screens/auth/PasswordEmailSent";
 import SignUp from "../screens/auth/SignUp";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
@@ -89,6 +91,16 @@ function RootNavigator() {
       <Stack.Screen
         name="SignUp"
         component={SignUp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PasswordEmailSent"
+        component={PasswordEmailSent}
         options={{ headerShown: false }}
       />
       <Stack.Screen
