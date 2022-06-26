@@ -129,7 +129,7 @@ const OnboardingThree = () => {
       <View style={tw`p-3`}>
         <Text style={tw`font-bold text-3xl text-center`}>Planning ahead</Text>
         <Text style={tw`text-gray-500 text-center mt-3 text-base`}>
-          Setup your budget for each category so you in control
+          Setup your budget for each category so you keep your money in control
         </Text>
       </View>
     </ScrollView>
