@@ -89,6 +89,23 @@ List of Dev Dependencies used in this project with their specific version:-
 - Dependencies: [@types/react](https://npmjs.com/package/@types/react)
 - Global values: `AbortController`, `AbortSignal`, `Blob`, `FileReader`, `FormData`, `Headers`, `MessageQueue`, `Request`, `Response`, `URL`, `URLSearchParams`, `WebSocket`, `XMLHttpRequest`, `XMLHttpRequestUpload`, `cancelAnimationFrame`, `clearImmediate`, `clearInterval`, `clearTimeout`, `fetch`, `fetchBundle`, `requestAnimationFrame`, `setImmediate`, `setInterval`, `setTimeout`
 
+### Expo Dev client apps
+
+1. Generate the Dev client apps using this command
+```
+   eas build --profile development
+```
+This will generate mobile apps that will work without expo, just open the app and run this command to start the dev client server
+```
+   expo start --dev-client
+```
+
+2. Generate the preview release
+```
+   eas build --profile preview
+```
+And then just install the .apk on your device for testing.
+
 # Credits
 
 This project was created by [Zahid Shaikh](https://github.com/the-lone-druid)
