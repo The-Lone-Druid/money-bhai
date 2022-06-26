@@ -17,7 +17,18 @@
       "android": {
         "gradleCommand": ":app:assembleRelease"
       },
+      "ios": {
+        "simulator": true
+      },
       "distribution": "internal"
+    },
+    "test": {
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
     },
     "production": {}
   },

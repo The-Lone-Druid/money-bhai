@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName, Pressable, StatusBar } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -42,6 +42,11 @@ export default function Navigation({
       theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
     >
       <RootNavigator />
+      <StatusBar
+        backgroundColor={"#00000000"}
+        translucent={true}
+        barStyle={colorScheme === "light" ? "dark-content" : "light-content"}
+      />
     </NavigationContainer>
   );
 }

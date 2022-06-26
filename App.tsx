@@ -21,13 +21,6 @@ export default function App() {
         <AuthProvider>
           <SafeAreaProvider>
             <Navigation colorScheme={colorScheme} />
-            <StatusBar
-              backgroundColor={"#00000000"}
-              translucent={true}
-              barStyle={
-                colorScheme === "light" ? "dark-content" : "light-content"
-              }
-            />
           </SafeAreaProvider>
         </AuthProvider>
       </Provider>

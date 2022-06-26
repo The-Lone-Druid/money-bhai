@@ -17,13 +17,17 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.spotfinder.spotfinderdev",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#7F3DFF"
-      }
+      },
+      "package": "com.spotfinder.spotfinderdev",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

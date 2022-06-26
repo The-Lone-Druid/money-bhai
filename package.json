@@ -41,7 +41,8 @@
     "react-native-web": "0.17.7",
     "react-redux": "^8.0.2",
     "twrnc": "^3.3.3",
-    "expo-checkbox": "~2.1.0"
+    "expo-checkbox": "~2.1.0",
+    "expo-dev-client": "~1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
